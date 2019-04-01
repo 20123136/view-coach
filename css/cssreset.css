@@ -1,0 +1,8 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+a{text-decoration:none;display:block;}
+img{display:block;border:none;}
+li{list-style:none;}
+body h1,body h2,body h3,body h4,body h5,body p,body input,body label{font-weight:normal;margin:0;font-size:14px;color:#333;}
+input{border:none;outline:none;}
+body{font-size:14px;font-family:PingFangSC-Light,helvetica neue,hiragino sans gb,arial,microsoft yahei ui,microsoft yahei,simsun,sans-serif;}
+html,body{height:100%;}

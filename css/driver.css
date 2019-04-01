@@ -1,0 +1,51 @@
+body{padding-bottom:140px;}
+header{background:#333;}
+.main-body{margin-bottom:160px;}
+.header{width:1200px;margin:0 auto;display:flex;justify-content: space-between;padding:10px 24px;}
+.header a img{height:40px;}
+.header h1{padding-left:30px;font-size:16px;color:#fff;line-height:40px;background:url("../img/phone.png") no-repeat left center;background-size:20%;}
+nav{border-bottom:solid 1px #00c5cd;margin-top:20px;}
+nav ul{width:1200px;margin:0 auto;display:flex;padding-bottom:20px;}
+nav ul li a{font-size:16px;color:#4a4a4a;padding:0 48px;cursor:pointer;}
+nav ul li a.active{color:#00c5cd;}
+/*.more{width:1000px;}*/
+.more a{width:240px;height:36px;line-height:36px;text-align:center;background:#00c5cd;border-radius:4px;color:#fff;cursor:pointer;margin:24px auto 0 auto;}
+.main-body{width:100%;}
+.index-bg{width:100%;height:500px;background:url("../img/bg.jpg") no-repeat;background-size: cover;position:relative}
+.coach-list{width:1000px;margin:25px auto 0 auto;overflow:hidden;}
+.coach-list img{float:left;width:100px;height:100px;}
+.driver{float:left;margin-left:12px;}
+.driver h3{font-size:16px;color:#4a4a4a;margin:13px 0 26px;}
+.driver p{font-size:12px;color:#337ab7;}
+.money{float:right;}
+.money p{width:130px;color:#FFA630;font-size:18px;font-weight: bold;text-align:center;margin:20px 0 14px;}
+.money input{width:130px;height:36px;line-height:36px;text-align:center;background:#00c5cd;border-radius:4px;color:#fff;cursor:pointer}
+.pop-bg{width:100%;height:100%;position:fixed;left:0;top:0;background:rgba(0,0,0,0.4);display:none;}
+.pop{width:600px;height:412px;background:#fff;margin:10% auto 0 auto;padding:0 106px;position:relative;}
+.pop i{position:absolute;top:20px;right:20px;font-size:20px;font-style: normal;cursor:pointer;color:#666;}
+.pop h1{font-size:20px;line-height:88px;text-align:center;color:#4a4a4a;}
+.pop input[type=text],.pop select{width:388px;height:38px;line-height:38px;padding:0 10px;border:solid 1px #eee;border-radius:4px;margin-bottom:24px;}
+.pop input[type=button]{width:100%;height:38px;line-height:38px;text-align:center;background:#00c5cd;border-radius:4px;color:#fff;cursor:pointer}
+footer{width:100%;background:#333;padding:20px 0;position:fixed;left:0;bottom:0;}
+footer div{width:1000px;margin:0 auto;display:flex;}
+footer div img{width:100px;height:100px;margin:0 20px;}
+.process{width:1000px;margin:0 auto;font-size:14px;color:#4a4a4a;}
+.process h1{font-size:24px;color:#00c5cd;font-weight:bold;margin:30px 0;}
+.process h2{font-size:16px;color:#4a4a4a;margin-bottom:10px;}
+.process p{line-height:24px;font-size:13px;color:#4a4a4a;}
+.contact{width:1000px;margin:0 auto 0 auto;display:flex;padding:100px 0 0 0;}
+.contact .man h1{font-size:18px;color:#4a4a4a;margin:16px 0 14px 0;}
+.contact .man p{font-size:14px;color:#4a4a4a;}
+.man{margin:0 20px;}
+.contact img{width:100px;height:100px;margin:0 20px;}
+.write{width:1000px;margin:40px auto 0 auto;}
+.write h1{font-size:18px;color:#4a4a4a;margin-bottom:20px;
+    font-weight: bold;}
+.info{display:flex;}
+.info label{font-size:14px;color:#4a4a4a;margin-right:12px;line-height:38px;}
+.info input[type=text],.info select{width:388px;height:38px;line-height:38px;padding:0 10px;border:solid 1px #e5e5e5;border-radius:4px;}
+.write input[type=button]{width:388px;height:38px;line-height:38px;text-align:center;background:#00c5cd;border-radius:4px;color:#fff;cursor:pointer;margin-left:276px;margin-top:50px;}
+
+
+
+
