@@ -1,7 +1,5 @@
 const MYAPP = {
 
-    "javacoach": "http://172.16.0.44:8080/java-coach/",
-
     "area": {
         "宁波市": "宁波市",
         "海曙区": "海曙区",
