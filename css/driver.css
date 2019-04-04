@@ -21,11 +21,11 @@ nav ul li a.active{color:#00c5cd;}
 .money p{width:130px;color:#FFA630;font-size:18px;font-weight: bold;text-align:center;margin:20px 0 14px;}
 .money input{width:130px;height:36px;line-height:36px;text-align:center;background:#00c5cd;border-radius:4px;color:#fff;cursor:pointer}
 .pop-bg{width:100%;height:100%;position:fixed;left:0;top:0;background:rgba(0,0,0,0.4);display:none;}
-.pop{width:600px;height:412px;background:#fff;margin:10% auto 0 auto;padding:0 106px;position:relative;}
+.pop{width:600px;height:472px;background:#fff;margin:10% auto 0 auto;padding:0 106px;position:relative;}
 .pop i{position:absolute;top:20px;right:20px;font-size:20px;font-style: normal;cursor:pointer;color:#666;}
 .pop h1{font-size:20px;line-height:88px;text-align:center;color:#4a4a4a;}
-.pop input[type=text],.pop select{width:388px;height:38px;line-height:38px;padding:0 10px;border:solid 1px #eee;border-radius:4px;margin-bottom:24px;}
-.pop input[type=button]{width:100%;height:38px;line-height:38px;text-align:center;background:#00c5cd;border-radius:4px;color:#fff;cursor:pointer}
+.pop input[type=text],.pop select{width:388px;height:38px;line-height:38px;padding:0 10px;border:solid 1px #eee;border-radius:4px;margin-bottom:8px;}
+.pop input[type=submit]{width:100%;height:38px;line-height:38px;text-align:center;background:#00c5cd;border-radius:4px;color:#fff;cursor:pointer}
 footer{width:100%;background:#333;padding:20px 0;position:fixed;left:0;bottom:0;}
 footer div{width:1000px;margin:0 auto;display:flex;}
 footer div img{width:100px;height:100px;margin:0 20px;}

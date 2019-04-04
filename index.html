@@ -7,90 +7,99 @@
     <link href="css/driver.css" rel="stylesheet">
     <title id="html-title">首页</title>
     <style>
-        .pop{position:absolute;right:10%;top:60px;margin:0 auto;}
+        .pop{position:absolute;right:10%;top:35px;margin:0 auto;}
     </style>
+
+    <link href="js/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="js/toastr/toastr.min.css" rel="stylesheet">
 </head>
 <body>
-<header>
-    <div class="header">
-        <a><img src="img/logo.png"></a>
-        <h1>18899996666</h1>
-    </div>
-</header>
-<nav>
-    <ul>
-        <li><a class="active">首页</a></li>
-        <li><a href="search.html">找教练</a></li>
-        <li><a href="process.html">学车流程</a></li>
-        <li><a href="contact.html">联系我们</a></li>
-    </ul>
-</nav>
-<div class="main-body">
-    <div class="index-bg">
-        <form action="jaca">
-            <div class="pop">
-                <h1>免费咨询</h1>
-                <input type="text" value="波哥电话:18668569060" disabled>
-                <input type="text" placeholder="请输入姓名">
-                <input type="text" placeholder="请输入手机号">
-                <select>
-                    <option value="宁波市">宁波市</option>
-                    <option value="海曙区">海曙区</option>
-                    <option value="江北区">江北区</option>
-                    <option value="北仑区">北仑区</option>
-                    <option value="镇海区">镇海区</option>
-                    <option value="鄞州区">鄞州区</option>
-                    <option value="奉化区">奉化区</option>
-                    <option value="余姚市">余姚市</option>
-                    <option value="慈溪市">慈溪市</option>
-                    <option value="象山县">象山县</option>
-                    <option value="宁海县">宁海县</option>
-                    <option value="海曙区">海曙区</option>
-                </select>
-                <input type="text" placeholder="您的备注">
-                <input type="button" value="提交">
+<div id="app">
+    <header>
+        <div class="header">
+            <a><img src="img/logo.png"></a>
+            <h1>18899996666</h1>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a class="active">首页</a></li>
+            <li><a href="search.html">找教练</a></li>
+            <li><a href="process.html">学车流程</a></li>
+            <li><a href="contact.html">联系我们</a></li>
+        </ul>
+    </nav>
+    <div class="main-body">
+        <div class="index-bg">
+            <form action="javascript:void(0);" id="form-student">
+                <div class="pop">
+                    <h1>免费咨询</h1>
+                    <input type="text" value="波哥电话：18668569060" disabled>
+                    <div class="valid">
+                        <input type="text" placeholder="请输入姓名" v-mode="name" class="form-control" name="name">
+                    </div>
+                    <div class="valid">
+                        <input type="text" placeholder="请输入手机号" v-mode="phoneNumber" class="form-control" name="phoneNumber">
+                    </div>
+                    <div class="valid">
+                        <select v-model="area.selected" class="form-control">
+                            <option value="">--- 希望在哪个地区学车 ---</option>
+                            <option v-for="(value, key) in area.list" :value="key">{{value}}</option>
+                        </select>
+                    </div>
+                    <div class="valid">
+                        <select v-model="sex.selected" class="form-control">
+                            <option value="">--- 您的性别 ---</option>
+                            <option v-for="(value, key) in sex.list" :value="key">{{value}}</option>
+                        </select>
+                    </div>
+                    <div class="valid">
+                        <input type="text" placeholder="您的备注" v-mode="desc" class="form-control">
+                    </div>
+                    <input type="submit" value="提交">
+                </div>
+            </form>
+        </div>
+        <div class="process">
+            <h1>学车流程</h1>
+            <h2>一、报名</h2>
+            <p>1.初学者需要提供本人身份证、彩色白底1寸数码相片8张、机动车驾驶人相片回执、市级以上医院驾驶证体检表（外户口还需有效期内的清远市居住证）。</p>
+            <p> 2.增驾（以上1资料加清远市驾驶证）。</p>
+            <p>3.境外人员（以上1的资料加办理境外人员临时住宿登记表）。</p>
+            <h2>二、受理资料</h2>
+            <p>理论和交通规则授课，接受了交警部门受理的学员必须按规定由交警部门安排听课一天相关交通规则的理论课，驾校会电话预约学员上课时间。</p>
+            <h2>三、上理论课</h2>
+            <p>理论和交通规则授课，接受了交警部门受理的学员必须按规定由交警部门安排听课一天相关交通规则的理论课，驾校会电话预约 学员上课时间。</p>
+            <h2>四、科目一（理论考试）</h2>
+            <p>理论课后由驾校向交通部门及交警部门送资料，然后预约考试，学员要主动到驾校通过测试达到要求的分数线才能预约安排考试，驾校会全天候提供理论模拟考试计算机方便学员练习（理论考试合格成绩为90分，满分为100分）。</p>
+            <h2>五、领取学习证</h2>
+            <p>领取本人练车期间的资料证件。</p>
+            <h2>六、上车培训</h2>
+            <p>在教练员的指导下，进行简单的培训讲解，开始认识练车步骤，由浅到深的开始学习练车技巧。</p>
+            <h2>七、科目二考试</h2>
+            <p>考试包含侧方位停车、坡道定点停车和起步、直角转弯、曲线行驶、倒车入库。</p>
+            <h2>八、路考前训练</h2>
+            <p>完成科目二合格后在不少于七个工作日可以预约，路面训练由教练员从旁指导，教练车有交警部门规定的监控仪，要求每个学员道路驾驶不少于40公里。</p>
+            <h2>九、科目三考试</h2>
+            <p>完成系统指示的所有考试。</p>
+            <h2>十、科目三（安全文明考试）</h2>
+            <p>安全文明理论考试。</p>
+            <h2>十一、领取驾驶证</h2>
+            <h1>教练</h1>
+        </div>
+        <div class="coach-list">
+            <img src="img/coach.jpg">
+            <div class="driver">
+                <h3>姓名</h3>
+                <p>波波驾校</p>
             </div>
-        </form>
-    </div>
-    <div class="process">
-        <h1>学车流程</h1>
-        <h2>一、报名</h2>
-        <p>1.初学者需要提供本人身份证、彩色白底1寸数码相片8张、机动车驾驶人相片回执、市级以上医院驾驶证体检表（外户口还需有效期内的清远市居住证）。</p>
-        <p> 2.增驾（以上1资料加清远市驾驶证）。</p>
-        <p>3.境外人员（以上1的资料加办理境外人员临时住宿登记表）。</p>
-        <h2>二、受理资料</h2>
-        <p>理论和交通规则授课，接受了交警部门受理的学员必须按规定由交警部门安排听课一天相关交通规则的理论课，驾校会电话预约学员上课时间。</p>
-        <h2>三、上理论课</h2>
-        <p>理论和交通规则授课，接受了交警部门受理的学员必须按规定由交警部门安排听课一天相关交通规则的理论课，驾校会电话预约学员上课时间。</p>
-        <h2>四、科目一（理论考试）</h2>
-        <p>理论课后由驾校向交通部门及交警部门送资料，然后预约考试，学员要主动到驾校通过测试达到要求的分数线才能预约安排考试，驾校会全天候提供理论模拟考试计算机方便学员练习（理论考试合格成绩为90分，满分为100分）。</p>
-        <h2>五、领取学习证</h2>
-        <p>领取本人练车期间的资料证件。</p>
-        <h2>六、上车培训</h2>
-        <p>在教练员的指导下，进行简单的培训讲解，开始认识练车步骤，由浅到深的开始学习练车技巧。</p>
-        <h2>七、科目二考试</h2>
-        <p>考试包含侧方位停车、坡道定点停车和起步、直角转弯、曲线行驶、倒车入库。</p>
-        <h2>八、路考前训练</h2>
-        <p>完成科目二合格后在不少于七个工作日可以预约，路面训练由教练员从旁指导，教练车有交警部门规定的监控仪，要求每个学员道路驾驶不少于40公里。</p>
-        <h2>九、科目三考试</h2>
-        <p>完成系统指示的所有考试。</p>
-        <h2>十、科目三（安全文明考试）</h2>
-        <p>安全文明理论考试。</p>
-        <h2>十一、领取驾驶证</h2>
-        <h1>教练</h1>
-    </div>
-    <div class="coach-list">
-        <img src="img/coach.jpg">
-        <div class="driver">
-            <h3>姓名</h3>
-            <p>波波驾校</p>
+            <div class="money">
+                <p>￥8888</p>
+                <input type="button" value="免费咨询">
+            </div>
         </div>
-        <div class="money">
-            <p>￥8888</p>
-            <input type="button" value="免费咨询">
-        </div>
+        <div class="more"><a>查看更多</a></div>
     </div>
-    <div class="more"><a>查看更多</a></div>
 </div>
 <footer>
     <div>
@@ -99,6 +108,95 @@
         <img src="img/douyin.jpg">
     </div>
 </footer>
-</div>
+
 </body>
+
+<script src="./js/jquery-3.3.1.js"></script>
+<script src="./js/myapp.js"></script>
+<script src="./js/bootstrap/bootstrap.js"></script>
+<script src="./js/bootstrapvalidator/bootstrapValidator.min.js"></script>
+<script src="./js/toastr/toastr.min.js"></script>
+<script src="./js/toastr/toastr-custom.js"></script>
+<script src="./js/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            name: "",
+            phoneNumber: "",
+            area: {
+                list: MYAPP.area,
+                selected: "宁波市",
+            },
+            sex: {
+                list: MYAPP.sex,
+                selected: "男",
+            },
+            desc: "",
+        },
+        methods: {
+            signup(){
+                $.ajax({
+                    type: "POST",
+                    url: "http://172.16.0.44:8080/java-coach/student/signup",
+                    data: JSON.stringify({
+                        "name": this.name,
+                        "phoneNumber": this.phoneNumber,
+                        "area": this.area.selected,
+                        "sex": this.sex.selected,
+                        "desc": this.desc,
+                    }),
+                    contentType: 'application/json;charset=UTF-8',
+                    dataType: "json",
+                    timeout: 5000,
+                    success: function (response) {
+                        if(response.returnCode === 0){
+                            toastr.success("波哥将在稍后联系小可爱", "提交成功");
+                        }else{
+                            toastr.error("联系波哥失败，您可直接拨打我们官网提供的波哥电话", "提交失败");
+                        }
+                    },
+                });
+            }
+        },
+        mounted(){
+            let that = this;
+            $('#form-student').bootstrapValidator({
+                fields: {
+                    name: {
+                        group: ".valid",
+                        validators: {
+                            notEmpty: {
+                                message: '名称不能为空'
+                            },
+                            stringLength: {
+                                max: 64,
+                                message: '不能超过64位'
+                            },
+                        }
+                    },
+                    phoneNumber: {
+                        group: ".valid",
+                        validators: {
+                            notEmpty: {
+                                message: '号码不能为空'
+                            },
+                            stringLength: {
+                                max: 11,
+                                message: '不能超过11位'
+                            },
+                            digits: {
+                                message: '只能是数字'
+                            }
+                        }
+                    },
+                }
+            }).on('success.form.bv', function(e, data) {
+                e.preventDefault();
+                that.signup();
+            })
+        }
+    })
+</script>
+
 </html>
