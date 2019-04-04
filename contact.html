@@ -6,39 +6,91 @@
     <link href="css/cssreset.css" rel="stylesheet">
     <link href="css/driver.css" rel="stylesheet">
     <title id="html-title">联系我们</title>
+    <style>
+        .pop{border:solid 5px #79f5ed;margin:20px auto 0 auto}
+    </style>
+    <link href="js/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="js/toastr/toastr.min.css" rel="stylesheet">
+
 </head>
 <body>
-<header>
-    <div class="header">
-        <a><img src="img/logo.png"></a>
-        <h1>18899996666</h1>
-    </div>
-</header>
-<nav>
-    <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="search.html">找教练</a></li>
-        <li><a href="process.html">学车流程</a></li>
-        <li><a href="contact.html" class="active">联系我们</a></li>
-    </ul>
-</nav>
-<div class="main-body">
-    <div class="contact">
-        <div class="man">
-            <h1>联系电话</h1>
-            <p>波哥:1888888888</p>
+<div id="app">
+    <header>
+        <div class="header">
+            <a><img src="img/logo.png"></a>
+            <h1>18899996666</h1>
         </div>
-        <img src="img/wx.jpg">
-        <img src="img/weibo.jpg">
-        <img src="img/douyin.jpg">
-    </div>
-    <div class="write">
-        <h1>填写信息</h1>
-        <div class="info">
-            <label>姓名:</label><input type="text" style="margin-right:30px;">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="search.html">找教练</a></li>
+            <li><a href="process.html">学车流程</a></li>
+            <li><a href="contact.html" class="active">联系我们</a></li>
+        </ul>
+    </nav>
+    <div class="main-body">
+
+
+        <div class="contact">
+            <div class="man">
+                <h1>联系电话</h1>
+                <p>波哥：18668569060</p>
+            </div>
+            <img src="img/wx.jpg">
+            <img src="img/weibo.jpg">
+            <img src="img/douyin.jpg">
+        </div>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <form action="javascript:void(0);" id="form-student">
+            <div class="pop">
+                <h1>免费咨询</h1>
+                <input type="text" value="波哥电话：18668569060" disabled>
+                <div class="valid">
+                    <input type="text" placeholder="请输入姓名" v-mode="name" class="form-control" name="name">
+                </div>
+                <div class="valid">
+                    <input type="text" placeholder="请输入手机号" v-mode="phoneNumber" class="form-control" name="phoneNumber">
+                </div>
+                <div class="valid">
+                    <select v-model="area.selected" class="form-control">
+                        <option value="">--- 希望在哪个地区学车 ---</option>
+                        <option v-for="(value, key) in area.list" :value="key">{{value}}</option>
+                    </select>
+                </div>
+                <div class="valid">
+                    <select v-model="sex.selected" class="form-control">
+                        <option value="">--- 您的性别 ---</option>
+                        <option v-for="(value, key) in sex.list" :value="key">{{value}}</option>
+                    </select>
+                </div>
+                <div class="valid">
+                    <input type="text" placeholder="您的备注" v-mode="desc" class="form-control">
+                </div>
+                <input type="submit" value="提交">
+            </div>
+        </form>
+
+
+        <!--<div class="write">
+            <h1>填写信息</h1>
+            <div class="info">
+                <label>姓名:</label><input type="text" style="margin-right:30px;">
+                <label>性别:</label><input type="text" style="margin-right:30px;">
+            </div>
+            <div class="info">
+                <label>联系电话:</label><input type="text" style="margin-right:30px;">
+                <label>地区:</label><input type="text" style="margin-right:30px;">
+            </div>
             <label>地区:</label><select></select>
-        </div>
-        <input type="button" value="提交">
+
+
+
+            <input type="button" value="提交">
+        </div>-->
     </div>
 </div>
 <footer>
@@ -49,4 +101,92 @@
     </div>
 </footer>
 </body>
+<script src="./js/jquery-3.3.1.js"></script>
+<script src="./js/myapp.js"></script>
+<script src="./js/bootstrap/bootstrap.js"></script>
+<script src="./js/bootstrapvalidator/bootstrapValidator.min.js"></script>
+<script src="./js/toastr/toastr.min.js"></script>
+<script src="./js/toastr/toastr-custom.js"></script>
+<script src="./js/vue.js"></script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            name: "",
+            phoneNumber: "",
+            area: {
+                list: MYAPP.area,
+                selected: "宁波市",
+            },
+            sex: {
+                list: MYAPP.sex,
+                selected: "男",
+            },
+            desc: "",
+        },
+        methods: {
+            signup(){
+                $.ajax({
+                    type: "POST",
+                    url: "http://172.16.0.44:8080/java-coach/student/signup",
+                    data: JSON.stringify({
+                        "name": this.name,
+                        "phoneNumber": this.phoneNumber,
+                        "area": this.area.selected,
+                        "sex": this.sex.selected,
+                        "desc": this.desc,
+                    }),
+                    contentType: 'application/json;charset=UTF-8',
+                    dataType: "json",
+                    timeout: 5000,
+                    success: function (response) {
+                        if(response.returnCode === 0){
+                            toastr.success("波哥将在稍后联系小可爱", "提交成功");
+                        }else{
+                            toastr.error("联系波哥失败，您可直接拨打我们官网提供的波哥电话", "提交失败");
+                        }
+                    },
+                });
+            }
+        },
+        mounted(){
+            let that = this;
+            $('#form-student').bootstrapValidator({
+                fields: {
+                    name: {
+                        group: ".valid",
+                        validators: {
+                            notEmpty: {
+                                message: '名称不能为空'
+                            },
+                            stringLength: {
+                                max: 64,
+                                message: '不能超过64位'
+                            },
+                        }
+                    },
+                    phoneNumber: {
+                        group: ".valid",
+                        validators: {
+                            notEmpty: {
+                                message: '号码不能为空'
+                            },
+                            stringLength: {
+                                max: 11,
+                                message: '不能超过11位'
+                            },
+                            digits: {
+                                message: '只能是数字'
+                            }
+                        }
+                    },
+                }
+            }).on('success.form.bv', function(e, data) {
+                e.preventDefault();
+                that.signup();
+            })
+        }
+    })
+</script>
 </html>
